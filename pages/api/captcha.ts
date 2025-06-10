@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import svgCaptcha from 'svg-captcha';
-import cookie from 'cookie';
+import { serialize } from 'cookie';
 
 /**
  *  Generates and serves a CAPTCHA SVG image
@@ -17,7 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   res.setHeader(
     'Set-Cookie',
-    cookie.serialize('captcha_text', captcha.text, {
+    serialize('captcha_text', captcha.text, {
       httpOnly: true,
       maxAge: 300,
       path: '/',
