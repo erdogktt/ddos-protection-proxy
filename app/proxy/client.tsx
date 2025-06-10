@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
 
 /**
  * Captcha Verification Page
@@ -48,11 +47,9 @@ export default function ProxyClient() {
       <h1 className="text-2xl mb-4">Please verify you are human</h1>
 
       {captchaUrl && (
-        <Image
+        <img
           src={captchaUrl}
           alt="CAPTCHA"
-          width={192}
-          height={64}
           className="mb-4 w-48 h-auto border"
         />
       )}
